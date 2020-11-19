@@ -3,3 +3,19 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
+#root {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 90vh;
+}
+
+#container {
+	max-width: 250px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
