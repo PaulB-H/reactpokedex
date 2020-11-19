@@ -33,7 +33,11 @@ function Pokemon() {
 			{loadingFlav ? (
 				"Loading flavor text..."
 			) : (
-				<p>{data2.flavor_text_entries[0].flavor_text}</p>
+				<p>
+					{data2.flavor_text_entries[0].language.name === "en"
+						? data2.flavor_text_entries[0].flavor_text
+						: "Flavor text not English"}
+				</p>
 			)}
 		</div>
 	);
