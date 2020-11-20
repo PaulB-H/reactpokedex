@@ -85,10 +85,11 @@ const Pokedex = () => {
 				<>
 					<div
 						style={{
+							display: "flex",
+							justifyContent: "center",
 							backgroundColor: "white",
 							borderRadius: "10px",
 							padding: "5px",
-							textAlign: "center",
 						}}
 					>
 						<h1
