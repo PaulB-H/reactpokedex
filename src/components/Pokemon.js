@@ -14,6 +14,13 @@ function Pokemon() {
 		}
 	}
 
+	// const clicked = () => {
+	// 	console.log("Clicked");
+	// 	rand = Math.ceil(Math.random() * 875);
+	// 	useFetch(rand);
+	// 	useFetch2(rand);
+	// };
+
 	return (
 		<div id="container">
 			{loadingImg ? (
@@ -42,6 +49,7 @@ function Pokemon() {
 					>
 						Official Artwork
 					</sub>
+					<button onClick={useFetch}>Random</button>
 				</>
 			)}
 			{loadingFlav ? (
