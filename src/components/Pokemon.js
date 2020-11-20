@@ -4,9 +4,15 @@ import { useFetch2 } from "./hooks2";
 import "../App.css";
 
 function Pokemon() {
-	let rand = Math.ceil(Math.random() * 400);
+	let rand = Math.ceil(Math.random() * 875);
 	const [data, loadingImg] = useFetch(rand);
 	const [data2, loadingFlav] = useFetch2(rand);
+
+	function checkEng(entry) {
+		if (entry.language.name === "en") {
+			return entry.flavor_text;
+		}
+	}
 
 	return (
 		<div id="container">
@@ -23,21 +29,25 @@ function Pokemon() {
 								? data.sprites.other["official-artwork"].front_default
 								: data.sprites.front_default
 						}
-						alt={""}
+						alt={"Official artwork for " + data.name.toUpperCase()}
 						style={{
 							maxWidth: "100%",
 						}}
 					/>
+					<sub
+						style={{
+							marginBottom: "10px",
+							textAlign: "center",
+						}}
+					>
+						Official Artwork
+					</sub>
 				</>
 			)}
 			{loadingFlav ? (
 				"Loading flavor text..."
 			) : (
-				<p>
-					{data2.flavor_text_entries[0].language.name === "en"
-						? data2.flavor_text_entries[0].flavor_text
-						: "Flavor text not English"}
-				</p>
+				<p>{data2.flavor_text_entries.find(checkEng).flavor_text}</p>
 			)}
 		</div>
 	);
