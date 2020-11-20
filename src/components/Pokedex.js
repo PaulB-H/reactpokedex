@@ -67,14 +67,16 @@ const Pokedex = () => {
 	}
 
 	return (
-		<div>
+		<div id="container">
 			<button onClick={getRandomPokemon}>Random</button>
 			<button onClick={getRandomOGPokemon}>Random OG</button>
-			{loading ? <p>Loading</p> : <p>Name: {pokemon.name}</p>}
 			{loading ? (
 				<p>Loading</p>
 			) : (
-				<p>{species.flavor_text_entries.find(checkEng).flavor_text}</p>
+				<>
+					<p>Name: {pokemon.name}</p>
+					<p>{species.flavor_text_entries.find(checkEng).flavor_text}</p>
+				</>
 			)}
 		</div>
 	);
