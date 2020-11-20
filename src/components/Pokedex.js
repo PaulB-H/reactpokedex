@@ -84,7 +84,7 @@ const Pokedex = () => {
 				<>
 					<p>
 						Name:&nbsp;
-						{pokemon.name ? pokemon.name.toUpperCase() : "Placeholder"}
+						{pokemon.name && pokemon.name.toUpperCase()}
 					</p>
 					<img
 						src={
@@ -94,19 +94,14 @@ const Pokedex = () => {
 									: pokemon.sprites.front_default
 								: "Placeholder"
 						}
-						alt={
-							pokemon.name
-								? `Image for ${pokemon.name.toUpperCase()}`
-								: "Placeholder"
-						}
+						alt={pokemon.name && `Image for ${pokemon.name.toUpperCase()}`}
 						style={{
 							maxWidth: "100%",
 						}}
 					/>
 					<p>
-						{species.flavor_text_entries
-							? species.flavor_text_entries.find(checkEng).flavor_text
-							: "Placeholder"}
+						{species.flavor_text_entries &&
+							species.flavor_text_entries.find(checkEng).flavor_text}
 					</p>
 				</>
 			)}
