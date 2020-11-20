@@ -87,9 +87,10 @@ const Pokedex = () => {
 						style={{
 							display: "flex",
 							justifyContent: "center",
+							alignItems: "center",
 							backgroundColor: "white",
 							borderRadius: "10px",
-							padding: "5px",
+							padding: "10px",
 						}}
 					>
 						<h1
@@ -102,8 +103,9 @@ const Pokedex = () => {
 							{pokemon.name && pokemon.name.toUpperCase()}
 						</h1>
 					</div>
-					<div style={{ position: "relative" }}>
+					<div style={{ position: "relative", textAlign: "center" }}>
 						<img
+							id="pkmnImg"
 							src={
 								pokemon.sprites
 									? pokemon.sprites.other["official-artwork"].front_default
@@ -112,10 +114,6 @@ const Pokedex = () => {
 									: ""
 							}
 							alt={pokemon.name && `Image for ${pokemon.name.toUpperCase()}`}
-							style={{
-								maxWidth: "100%",
-								minHeight: "250px",
-							}}
 						/>
 						<div
 							style={{
