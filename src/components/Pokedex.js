@@ -68,7 +68,7 @@ const Pokedex = () => {
 			<img src={logo} style={{ maxWidth: "100%", margin: "-40%" }} />
 			{loading ? (
 				<>
-					<p>Loading</p>
+					<p style={{ margin: "155px" }}>Loading</p>
 				</>
 			) : (
 				<>
@@ -87,6 +87,7 @@ const Pokedex = () => {
 						alt={pokemon.name && `Image for ${pokemon.name.toUpperCase()}`}
 						style={{
 							maxWidth: "100%",
+							minHeight: "250px",
 						}}
 					/>
 					<p>
