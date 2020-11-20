@@ -4,7 +4,11 @@ const axios = require("axios");
 
 const Pokedex = () => {
 	const [pokemon, setPokemon] = useState({});
-	const [species, setSpecies] = useState({});
+	const [species, setSpecies] = useState({
+		flavor_text_entries: [
+			{ flavor_text: "Placeholder", language: { name: "en" } },
+		],
+	});
 	const [loading, setLoading] = useState(false);
 
 	// Load initial Pokemon
@@ -20,10 +24,10 @@ const Pokedex = () => {
 			setPokemon(pokemon.data);
 			setSpecies(species.data);
 			setLoading(false);
-			console.log(pokemon.data);
-			console.log(species.data);
 		}
+
 		fetchData();
+		// eslint-disable-next-line
 	}, []);
 
 	// Get random pokemon
@@ -56,11 +60,22 @@ const Pokedex = () => {
 		setLoading(false);
 	}
 
+	function checkEng(entry) {
+		if (entry.language.name === "en") {
+			return entry.flavor_text;
+		}
+	}
+
 	return (
 		<div>
 			<button onClick={getRandomPokemon}>Random</button>
 			<button onClick={getRandomOGPokemon}>Random OG</button>
 			{loading ? <p>Loading</p> : <p>Name: {pokemon.name}</p>}
+			{loading ? (
+				<p>Loading</p>
+			) : (
+				<p>{species.flavor_text_entries.find(checkEng).flavor_text}</p>
+			)}
 		</div>
 	);
 };
