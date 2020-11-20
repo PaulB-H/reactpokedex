@@ -4,11 +4,7 @@ const axios = require("axios");
 
 const Pokedex = () => {
 	const [pokemon, setPokemon] = useState({});
-	const [species, setSpecies] = useState({
-		flavor_text_entries: [
-			{ flavor_text: "Placeholder", language: { name: "en" } },
-		],
-	});
+	const [species, setSpecies] = useState({});
 	const [loading, setLoading] = useState(false);
 
 	// Load initial Pokemon
@@ -75,7 +71,24 @@ const Pokedex = () => {
 			) : (
 				<>
 					<p>Name: {pokemon.name}</p>
-					<p>{species.flavor_text_entries.find(checkEng).flavor_text}</p>
+					<img
+						src={
+							pokemon.sprites
+								? pokemon.sprites.other["official-artwork"].front_default
+									? pokemon.sprites.other["official-artwork"].front_default
+									: pokemon.sprites.front_default
+								: "Placeholder"
+						}
+						// alt={"Official artwork for " + pokemon.name.toUpperCase()}
+						style={{
+							maxWidth: "100%",
+						}}
+					/>
+					<p>
+						{species.flavor_text_entries
+							? species.flavor_text_entries.find(checkEng).flavor_text
+							: "Placeholder"}
+					</p>
 				</>
 			)}
 		</div>
