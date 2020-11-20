@@ -74,9 +74,12 @@ const Pokedex = () => {
 			{loading ? (
 				<>
 					<img
+						id="spinnerImg"
 						src={spinner}
 						style={{
 							margin: "75px",
+							clipPath:
+								"polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)",
 						}}
 						alt=""
 					/>
@@ -85,12 +88,10 @@ const Pokedex = () => {
 				<>
 					<div
 						style={{
-							display: "flex",
-							justifyContent: "center",
-							alignItems: "center",
 							backgroundColor: "white",
 							borderRadius: "10px",
-							padding: "10px",
+							padding: "5px",
+							textAlign: "center",
 						}}
 					>
 						<h1
