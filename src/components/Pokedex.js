@@ -65,21 +65,17 @@ const Pokedex = () => {
 	return (
 		<div id="container">
 			<div style={{ display: "flex" }}>
-				<button
-					style={{ width: "50%", padding: "5px", margin: "3px" }}
-					onClick={getRandomPokemon}
-				>
+				<button style={style.button} onClick={getRandomPokemon}>
 					Random
 				</button>
-				<button
-					style={{ width: "50%", padding: "5px", margin: "3px" }}
-					onClick={getRandomOGPokemon}
-				>
+				<button style={style.button} onClick={getRandomOGPokemon}>
 					Random <br /> Classic
 				</button>
 			</div>
 			{loading ? (
-				<p>Loading</p>
+				<>
+					<p>Loading</p>
+				</>
 			) : (
 				<>
 					<p>
@@ -92,7 +88,7 @@ const Pokedex = () => {
 								? pokemon.sprites.other["official-artwork"].front_default
 									? pokemon.sprites.other["official-artwork"].front_default
 									: pokemon.sprites.front_default
-								: "Placeholder"
+								: ""
 						}
 						alt={pokemon.name && `Image for ${pokemon.name.toUpperCase()}`}
 						style={{
@@ -107,6 +103,14 @@ const Pokedex = () => {
 			)}
 		</div>
 	);
+};
+
+const style = {
+	button: {
+		width: "50%",
+		padding: "5px",
+		margin: "3px",
+	},
 };
 
 export default Pokedex;
