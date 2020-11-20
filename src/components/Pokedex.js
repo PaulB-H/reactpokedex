@@ -79,7 +79,7 @@ const Pokedex = () => {
 									: pokemon.sprites.front_default
 								: "Placeholder"
 						}
-						// alt={"Official artwork for " + pokemon.name.toUpperCase()}
+						alt={pokemon.name ? `Image for ${pokemon.name.toUpperCase()}` : ""}
 						style={{
 							maxWidth: "100%",
 						}}
