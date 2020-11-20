@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+/* font-family: Luckiest Guy; */
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
-
 html {
 	background: #eee;
 	height: 100%;
@@ -20,7 +20,6 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	/* min-height: 90vh; */
 }
 
 #container {
@@ -36,23 +35,12 @@ body {
 	overflow-x: hidden;
 }
 
-#flavorText {
-	background: white;
-	border-radius: 10px;
-	padding: 5px;
-}
-
-#pkmnImg {
-	max-width: 250px;
-	min-height: 250px;
-}
-
 @media (max-width: 400px) {
 	#pkmnImg {
 		max-width: 50%;
 		min-height: 175px;
 	}
 	#spinnerImg {
-		max-width: 50%;
+		max-width: 40%;
 	}
 }
