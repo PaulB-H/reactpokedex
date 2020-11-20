@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
+import logo from "../logo.svg";
 const axios = require("axios");
 
 const Pokedex = () => {
@@ -64,14 +65,7 @@ const Pokedex = () => {
 
 	return (
 		<div id="container">
-			<div style={{ display: "flex" }}>
-				<button style={style.button} onClick={getRandomPokemon}>
-					Random
-				</button>
-				<button style={style.button} onClick={getRandomOGPokemon}>
-					Random <br /> Classic
-				</button>
-			</div>
+			<img src={logo} style={{ maxWidth: "100%", margin: "-40%" }} />
 			{loading ? (
 				<>
 					<p>Loading</p>
@@ -101,6 +95,14 @@ const Pokedex = () => {
 					</p>
 				</>
 			)}
+			<div style={{ display: "flex", marginTop: "10px", width: "100%" }}>
+				<button style={style.button} onClick={getRandomPokemon}>
+					Random
+				</button>
+				<button style={style.button} onClick={getRandomOGPokemon}>
+					Random <br /> Classic
+				</button>
+			</div>
 		</div>
 	);
 };
@@ -110,6 +112,10 @@ const style = {
 		width: "50%",
 		padding: "5px",
 		margin: "3px",
+		borderRadius: "5px",
+		border: "none",
+		webkitBoxShadow: "0px 0px 5px 0px #000000",
+		boxShadow: "0px 0px 1px 0px #000000",
 	},
 };
 
