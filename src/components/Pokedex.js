@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
 import logo from "../logo.svg";
+import spinner from "./spinner.gif";
 const axios = require("axios");
 
 const Pokedex = () => {
@@ -65,32 +66,72 @@ const Pokedex = () => {
 
 	return (
 		<div id="container">
-			<img src={logo} style={{ maxWidth: "100%", margin: "-40%" }} />
+			<img
+				src={logo}
+				style={{ maxWidth: "100%", margin: "-40%" }}
+				alt="Pokemon Logo"
+			/>
 			{loading ? (
 				<>
-					<p style={{ margin: "155px" }}>Loading</p>
+					<img
+						src={spinner}
+						style={{
+							margin: "75px",
+						}}
+						alt=""
+					/>
 				</>
 			) : (
 				<>
-					<p>
-						Name:&nbsp;
-						{pokemon.name && pokemon.name.toUpperCase()}
-					</p>
-					<img
-						src={
-							pokemon.sprites
-								? pokemon.sprites.other["official-artwork"].front_default
-									? pokemon.sprites.other["official-artwork"].front_default
-									: pokemon.sprites.front_default
-								: ""
-						}
-						alt={pokemon.name && `Image for ${pokemon.name.toUpperCase()}`}
+					<div
 						style={{
-							maxWidth: "100%",
-							minHeight: "250px",
+							background: "white",
+							borderRadius: "10px",
+							padding: "5px",
+							textAlign: "center",
 						}}
-					/>
-					<p>
+					>
+						<h1
+							style={{
+								fontFamily: "Luckiest Guy",
+								color: "#1d4694",
+								webkitTextStroke: "2px #fbc707",
+							}}
+						>
+							{pokemon.name && pokemon.name.toUpperCase()}
+						</h1>
+					</div>
+					<div style={{ position: "relative" }}>
+						<img
+							src={
+								pokemon.sprites
+									? pokemon.sprites.other["official-artwork"].front_default
+										? pokemon.sprites.other["official-artwork"].front_default
+										: pokemon.sprites.front_default
+									: ""
+							}
+							alt={pokemon.name && `Image for ${pokemon.name.toUpperCase()}`}
+							style={{
+								maxWidth: "100%",
+								minHeight: "250px",
+							}}
+						/>
+						<div
+							style={{
+								position: "absolute",
+								width: "150%",
+								height: "150%",
+								borderRadius: "50%",
+								background: "white",
+								top: "-25%",
+								right: "-25%",
+								zIndex: "-1",
+								clipPath:
+									"polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)",
+							}}
+						></div>
+					</div>
+					<p id="flavorText">
 						{species.flavor_text_entries &&
 							species.flavor_text_entries.find(checkEng).flavor_text}
 					</p>
@@ -117,6 +158,9 @@ const style = {
 		border: "none",
 		webkitBoxShadow: "0px 0px 5px 0px #000000",
 		boxShadow: "0px 0px 1px 0px #000000",
+		background: "#fbc707",
+		fontWeight: "bolder",
+		color: "#1d4694",
 	},
 };
 
