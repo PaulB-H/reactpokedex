@@ -1,6 +1,3 @@
 ## React Pokedex
 
-Notes:<br>
-Instead of placeholders used "Short circuit evaluation"<br>
-
-<p>{pokemon.name && pokemon.name}</p>
+Created with [https://pokeapi.co/](https://pokeapi.co/)

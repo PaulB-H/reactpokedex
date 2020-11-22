@@ -67,6 +67,10 @@ const Pokedex = () => {
 		}
 	}
 
+	// Regex pattern to find any metachars
+	// such as /n which are in some flav text entries
+	const flavRegex = /\\./gi;
+
 	return (
 		<div id="container">
 			<img
@@ -104,7 +108,9 @@ const Pokedex = () => {
 					</div>
 					<p id="flavorText" style={style.flavText}>
 						{species.flavor_text_entries &&
-							species.flavor_text_entries.find(checkEng).flavor_text}
+							species.flavor_text_entries
+								.find(checkEng)
+								.flavor_text.replace(flavRegex, " ")}
 					</p>
 				</Fragment>
 			)}
