@@ -15,7 +15,7 @@
 <p>- Option to search only from classic (150) Pokemon</p>
 <hr />
 <h4>Links</h4>
-<a href="https://github.com/PaulB-H/reactpokedex" target="_blank">
+<a href="https://paulb-h.github.io/reactpokedex/" target="_blank">
 	Live Site
 </a>
 <br>
