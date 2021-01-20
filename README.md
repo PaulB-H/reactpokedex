@@ -15,8 +15,7 @@
 <p>- Option to search only from classic (150) Pokemon</p>
 <hr />
 <h4>Links</h4>
-<sup>Note: Live site may take 30 seconds to load as server spins up</sup><br>
-<a href="https://react-pokeapi.herokuapp.com/" target="_blank">
+<a href="https://github.com/PaulB-H/reactpokedex" target="_blank">
 	Live Site
 </a>
 <br>
