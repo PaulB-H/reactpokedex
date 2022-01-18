@@ -1,9 +1,10 @@
 import React, { useState, useEffect, Fragment } from "react";
 import "../App.css";
 import logo from "../images/pokemonlogo.png";
-import spinner from "../images/spinner.gif";
+
 import Buttons from "./Buttons";
 import Header from "./Header";
+import Spinner from "./Spinner";
 
 const axios = require("axios");
 
@@ -81,9 +82,7 @@ const Pokedex = () => {
       <Header logo={logo} />
 
       {loading ? (
-        <Fragment>
-          <img id="spinnerImg" src={spinner} style={style.spinnerImg} alt="" />
-        </Fragment>
+        <Spinner />
       ) : (
         <Fragment>
           <div style={style.pkmnNameWrap}>
@@ -165,11 +164,6 @@ const style = {
     top: "-25%",
     right: "-25%",
     zIndex: "-1",
-    clipPath:
-      "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)",
-  },
-  spinnerImg: {
-    margin: "60px",
     clipPath:
       "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)",
   },
