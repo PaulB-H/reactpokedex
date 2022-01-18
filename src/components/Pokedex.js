@@ -1,6 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
 import "../App.css";
-import logo from "../images/pokemonlogo.png";
 
 import Buttons from "./Buttons";
 import Header from "./Header";
@@ -79,7 +78,7 @@ const Pokedex = () => {
 
   return (
     <div id="container">
-      <Header logo={logo} />
+      <Header />
 
       {loading ? (
         <Spinner />
