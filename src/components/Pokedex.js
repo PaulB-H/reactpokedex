@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import "../App.css";
 import logo from "../images/pokemonlogo.png";
-import spinner from "./spinner.gif";
+import spinner from "../images/spinner.gif";
 const axios = require("axios");
 
 const Pokedex = () => {
