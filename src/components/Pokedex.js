@@ -4,6 +4,7 @@ import "../App.css";
 import Buttons from "./Buttons";
 import Header from "./Header";
 import Spinner from "./Spinner";
+import PokemonName from "./PokemonName";
 
 const axios = require("axios");
 
@@ -70,8 +71,6 @@ const Pokedex = () => {
     }
   }
 
-  const props = { getRandomPokemon, getRandomOGPokemon };
-
   // Regex pattern to find any metachars
   // such as /n which are in some flav text entries
   const flavRegex = /\\./gi;
@@ -84,11 +83,7 @@ const Pokedex = () => {
         <Spinner />
       ) : (
         <Fragment>
-          <div style={style.pkmnNameWrap}>
-            <h1 style={style.pkmnName}>
-              {pokemon.name && pokemon.name.toUpperCase()}
-            </h1>
-          </div>
+          <PokemonName pokemonName={pokemon.name} />
 
           <div style={style.imgWrap}>
             <img
@@ -125,20 +120,6 @@ const Pokedex = () => {
 };
 
 const style = {
-  pkmnNameWrap: {
-    backgroundColor: "white",
-    borderRadius: "10px",
-    textAlign: "center",
-    webkitBoxShadow: "0px 0px 5px 0px #000000",
-    boxShadow: "0px 0px 5px 0px #000000",
-    padding: "8px",
-  },
-  pkmnName: {
-    fontFamily: "Luckiest Guy",
-    color: "#1d4694",
-    webkitTextStroke: "2px #fbc707",
-    borderRadius: "10px",
-  },
   imgWrap: {
     position: "relative",
     textAlign: "center",
