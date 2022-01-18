@@ -3,6 +3,7 @@ import "../App.css";
 import logo from "../images/pokemonlogo.png";
 import spinner from "../images/spinner.gif";
 import Buttons from "./Buttons";
+import Header from "./Header";
 
 const axios = require("axios");
 
@@ -77,7 +78,8 @@ const Pokedex = () => {
 
   return (
     <div id="container">
-      <img src={logo} style={{ maxWidth: "100%" }} alt="Pokemon Logo" />
+      <Header logo={logo} />
+
       {loading ? (
         <Fragment>
           <img id="spinnerImg" src={spinner} style={style.spinnerImg} alt="" />
