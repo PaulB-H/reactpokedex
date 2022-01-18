@@ -6,6 +6,7 @@ import Header from "./Header";
 import Spinner from "./Spinner";
 import PokemonName from "./PokemonName";
 import PokemonImg from "./PokemonImg";
+import FlavorText from "./FlavorText";
 
 const axios = require("axios");
 
@@ -64,18 +65,6 @@ const Pokedex = () => {
     setLoading(false);
   }
 
-  // Return first English entry from
-  // flavor_text_entries array using arr.find()
-  function checkEng(entry) {
-    if (entry.language.name === "en") {
-      return entry.flavor_text;
-    }
-  }
-
-  // Regex pattern to find any metachars
-  // such as /n which are in some flav text entries
-  const flavRegex = /\\./gi;
-
   return (
     <div id="container">
       <Header />
@@ -88,12 +77,7 @@ const Pokedex = () => {
 
           <PokemonImg sprite={pokemon.sprites} pokemonName={pokemon.name} />
 
-          <p id="flavorText" style={style.flavText}>
-            {species.flavor_text_entries &&
-              species.flavor_text_entries
-                .find(checkEng)
-                .flavor_text.replace(flavRegex, " ")}
-          </p>
+          <FlavorText species={species} />
         </Fragment>
       )}
 
@@ -103,16 +87,6 @@ const Pokedex = () => {
       />
     </div>
   );
-};
-
-const style = {
-  flavText: {
-    background: "white",
-    borderRadius: "10px",
-    padding: "5px",
-    webkitBoxShadow: "0px 0px 5px 0px #000000",
-    boxShadow: "0px 0px 5px 0px #000000",
-  },
 };
 
 export default Pokedex;
