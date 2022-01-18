@@ -2,6 +2,8 @@ import React, { useState, useEffect, Fragment } from "react";
 import "../App.css";
 import logo from "../images/pokemonlogo.png";
 import spinner from "../images/spinner.gif";
+import Buttons from "./Buttons";
+
 const axios = require("axios");
 
 const Pokedex = () => {
@@ -67,6 +69,8 @@ const Pokedex = () => {
     }
   }
 
+  const props = { getRandomPokemon, getRandomOGPokemon };
+
   // Regex pattern to find any metachars
   // such as /n which are in some flav text entries
   const flavRegex = /\\./gi;
@@ -102,6 +106,7 @@ const Pokedex = () => {
 
             <div style={style.backgroundStar}></div>
           </div>
+
           <p id="flavorText" style={style.flavText}>
             {species.flavor_text_entries &&
               species.flavor_text_entries
@@ -110,37 +115,16 @@ const Pokedex = () => {
           </p>
         </Fragment>
       )}
-      <div style={style.btnWrap}>
-        <button style={style.button} onClick={getRandomPokemon}>
-          Random
-        </button>
 
-        <button style={style.button} onClick={getRandomOGPokemon}>
-          Random <br /> Classic
-        </button>
-      </div>
+      <Buttons
+        getRandomPokemon={getRandomPokemon}
+        getRandomOGPokemon={getRandomOGPokemon}
+      />
     </div>
   );
 };
 
 const style = {
-  btnWrap: {
-    display: "flex",
-    marginTop: "10px",
-    width: "100%",
-  },
-  button: {
-    width: "50%",
-    padding: "5px",
-    margin: "3px",
-    borderRadius: "5px",
-    border: "none",
-    webkitBoxShadow: "0px 0px 5px 0px #000000",
-    boxShadow: "0px 0px 1px 0px #000000",
-    background: "#fbc707",
-    fontWeight: "bolder",
-    color: "#1d4694",
-  },
   pkmnNameWrap: {
     backgroundColor: "white",
     borderRadius: "10px",
