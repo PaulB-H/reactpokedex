@@ -22,9 +22,11 @@ const Pokedex = () => {
     console.clear();
     setLoading(true);
     async function fetchData() {
-      const pokemon = await axios.get(`https://pokeapi.co/api/v2/pokemon/1/`);
+      const pokemon = await axios.get(
+        `https://paulbh.com/pokescrape/pokemon/1/`
+      );
       const species = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon-species/1/`
+        `https://paulbh.com/pokescrape/species/1/`
       );
       setPokemon(pokemon.data);
       setSpecies(species.data);
@@ -40,10 +42,10 @@ const Pokedex = () => {
     setLoading(true);
     let rand = Math.ceil(Math.random() * 875);
     const pokemon = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon/${rand}/`
+      `https://paulbh.com/pokescrape/pokemon/${rand}/`
     );
     const species = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon-species/${rand}/`
+      `https://paulbh.com/pokescrape/species/${rand}/`
     );
     setPokemon(pokemon.data);
     setSpecies(species.data);
@@ -55,10 +57,10 @@ const Pokedex = () => {
     setLoading(true);
     let rand = Math.ceil(Math.random() * 150);
     const pokemon = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon/${rand}/`
+      `https://paulbh.com/pokescrape/pokemon/${rand}/`
     );
     const species = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon-species/${rand}/`
+      `https://paulbh.com/pokescrape/species/${rand}/`
     );
     setPokemon(pokemon.data);
     setSpecies(species.data);
